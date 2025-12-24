@@ -10,7 +10,7 @@ some exposure to scripting and understand the value of learning to code, I have 
 I looked for tutorials and courses to help me learn, but everything I came across was aimed at
 complete beginners who've never looked at a script, so they walked through all of the fundamentals I already knew, like data types, lists/dictionaries, and logic loops. That's all well and good, but when it came time to apply what I know I found myself staring at a blank IDE with no idea where to start.
 
-My aim is to create functional, practical programs that serve as a learn-as-I-code frameworks for various languages so the concepts are immediately applied to my desired work. I don't want to learn everything, I want to learn enough to start using it and then I can learn more as I work with each language more.
+My aim is to create functional, practical programs that serve as learn-as-I-code frameworks for various languages so the concepts are immediately applied to my desired work. I don't want to learn everything, I want to learn enough to start using it and then I can learn more as I work with each language more.
 
 ## What This Is
 
