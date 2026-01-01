@@ -14,9 +14,50 @@ Initialize empty lists for storing info. They will populate when the script exec
 """
 
 # TODO: add functions
-# 1. socket - make a network connection, takes target and port as arguments
+# 1. socket - make a network connection, takes target and port as arguments - DONE
 # 2. get service info on a port
-# 3. print results
+# 3. print results - DONE
+
+def check_port(target, port):
+    """
+    Try to connect to a port on the target.
+    """
+    try:
+        # Create a socket
+        # AF_INET for IPv4 address
+        # SOCK_STREAM for TCP packets
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1) # 1 second timeout
+
+        result = sock.connect_ex((target, port)) # Checks connection state, returns 0 if open
+
+        if result == 0:
+            print(f"Port {port} is OPEN")
+            open_ports.append(port) # Add port to end of list
+
+            sock.close() # Close the socket when done
+            return True
+        
+        sock.close() # If the port is closed, close the socket anyway
+        return False
+
+    # If trying the socket connection doesn't work for some reason, return False and continue
+    except:
+        return False
+
+def print_results(target):
+    """
+    Print results of what we find from a target
+    """
+    print(f"Scan results for: {target}")
+    print(f"\nOpen ports found: {len(open_ports)}") # Count the total number of open ports found
+
+    if open_ports: # If the list has data, print details
+        print("\nPort details:")
+        # TODO: get and print info from the port details function
+    
+    else:
+        print("\nNo open ports found.") # Notify user if no open ports were found
 
 def main(): # Defines a function, gives it a name
     """
@@ -35,9 +76,12 @@ def main(): # Defines a function, gives it a name
     # Printf allows embedding variable values in text printed to terminal
     print(f"\nScanning target {target} ports {start_port} - {end_port}, please wait...")
     
-    # TODO: main scanning logic
+    # TODO: main scanning logic - IN PROGRESS
+    for port in range(start_port, end_port +1): # Loop through each port incrementally
+        check_port(target, port)
     
-    # TODO: print results
+    # TODO: print results - DONE
+    print_results(target)
 
 if __name__ == "__main__":
     """
